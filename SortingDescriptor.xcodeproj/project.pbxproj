@@ -16,6 +16,7 @@
 		B9B402F01E269BB8006165CE /* SortingDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B402EF1E269BB8006165CE /* SortingDescriptor.swift */; };
 		B9B402F41E269CBB006165CE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B9B402F11E269CBB006165CE /* LICENSE */; };
 		B9B402F61E269CBB006165CE /* T21SortingDescriptorSwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B9B402F31E269CBB006165CE /* T21SortingDescriptorSwift.podspec */; };
+		B9B403001E278380006165CE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B402FF1E278380006165CE /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		B9B402EF1E269BB8006165CE /* SortingDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingDescriptor.swift; sourceTree = "<group>"; };
 		B9B402F11E269CBB006165CE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B9B402F31E269CBB006165CE /* T21SortingDescriptorSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = T21SortingDescriptorSwift.podspec; sourceTree = "<group>"; };
+		B9B402FF1E278380006165CE /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				B9B402E31E269B8F006165CE /* SortingDescriptorTests.swift */,
 				B9B402E51E269B8F006165CE /* Info.plist */,
+				B9B402FF1E278380006165CE /* Person.swift */,
 			);
 			path = SortingDescriptorTests;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B403001E278380006165CE /* Person.swift in Sources */,
 				B9B402E41E269B8F006165CE /* SortingDescriptorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +436,7 @@
 				B9B402EA1E269B8F006165CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B9B402EB1E269B8F006165CE /* Build configuration list for PBXNativeTarget "SortingDescriptorTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +445,7 @@
 				B9B402ED1E269B8F006165CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
