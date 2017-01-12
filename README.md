@@ -30,6 +30,12 @@ let personsToSort = [Person(29,"Tom"),Person(10,"Jack"),Person(54,"Ana"),Person(
 let sortingDescriptor: SortDescriptor<Person> = sortDescriptor({ $0.age })
 let personsSortedByAge = personsToSort.sorted(by: sortingDescriptor)
 
+/*
+Jack: 10
+Maria: 24
+Tom: 29
+Ana: 54
+*/
 
 ```
 
@@ -44,5 +50,14 @@ let sortingDescriptorByAge: SortDescriptor<Person> = sortDescriptor({ $0.age }, 
 let sortingDescriptorByName: SortDescriptor<Person> = sortDescriptor(key: { $0.name }, String.localizedCaseInsensitiveCompare)
 let combinedSortingDescriptor = combine(sortDescriptors: [sortingDescriptorByAge,sortingDescriptorByName])
 let personsSortedByAgeAndName = personsToSort.sorted(by: combinedSortingDescriptor)
+
+/*
+Ana: 54
+Daniel: 29
+Tom: 29
+Aurora: 24
+Maria: 24
+Jack: 10
+*/
 
 ```

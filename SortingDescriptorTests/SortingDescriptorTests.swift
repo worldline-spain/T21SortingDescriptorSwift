@@ -34,6 +34,10 @@ class SortingDescriptorTests: XCTestCase {
         XCTAssert(personsSortedByAge[1].name == "Maria")
         XCTAssert(personsSortedByAge[2].name == "Tom")
         XCTAssert(personsSortedByAge[3].name == "Ana")
+        
+        personsSortedByAge.forEach { (person) in
+            print(person.description)
+        }
     }
     
     func testAgeSortingDescending() {
@@ -59,6 +63,10 @@ class SortingDescriptorTests: XCTestCase {
         XCTAssert(personsSortedByAgeAndName[3].name == "Aurora")
         XCTAssert(personsSortedByAgeAndName[4].name == "Maria")
         XCTAssert(personsSortedByAgeAndName[5].name == "Jack")
+        
+        personsSortedByAgeAndName.forEach { (person) in
+            print(person.description)
+        }
     }
     
     func testCombinedSortingByAgeAndName2() {

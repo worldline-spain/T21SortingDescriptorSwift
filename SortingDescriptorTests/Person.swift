@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Person {
+public class Person : CustomStringConvertible, CustomDebugStringConvertible {
     
     public var age: Int
     public var name: String
@@ -17,4 +17,16 @@ public class Person {
         self.age = age
         self.name = name
     }
+    
+    public var description: String {
+        return "\(name): \(age)"
+    }
+    
+    public var debugDescription: String {
+        return description
+    }
+}
+
+extension Person {
+    
 }
