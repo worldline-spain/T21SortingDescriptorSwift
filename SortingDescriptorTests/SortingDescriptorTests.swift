@@ -28,7 +28,7 @@ class SortingDescriptorTests: XCTestCase {
     
     func testAgeSortingAscending() {
         let personsToSort = [Person(29,"Tom"),Person(10,"Jack"),Person(54,"Ana"),Person(24,"Maria")]
-        let sortingDescriptor: SortDescriptor<Person> = sortDescriptor({ $0.age })
+        let sortingDescriptor: SortDescriptor<Person> = CreateSortDescriptor({ $0.age })
         let personsSortedByAge = personsToSort.sorted(by: sortingDescriptor)
         XCTAssert(personsSortedByAge[0].name == "Jack")
         XCTAssert(personsSortedByAge[1].name == "Maria")
@@ -42,7 +42,7 @@ class SortingDescriptorTests: XCTestCase {
     
     func testAgeSortingDescending() {
         let personsToSort = [Person(29,"Tom"),Person(10,"Jack"),Person(54,"Ana"),Person(24,"Maria")]
-        let sortingDescriptor: SortDescriptor<Person> = sortDescriptor({ $0.age }, >)
+        let sortingDescriptor: SortDescriptor<Person> = CreateSortDescriptor({ $0.age }, >)
         let personsSortedByAge = personsToSort.sorted(by: sortingDescriptor)
         XCTAssert(personsSortedByAge[0].name == "Ana")
         XCTAssert(personsSortedByAge[1].name == "Tom")
@@ -52,10 +52,10 @@ class SortingDescriptorTests: XCTestCase {
     
     func testCombinedSortingByAgeAndName() {
         let personsToSort = [Person(29,"Tom"),Person(10,"Jack"),Person(54,"Ana"),Person(24,"Maria"),Person(24,"Aurora"),Person(29,"Daniel")]
-        let sortingDescriptorByAge: SortDescriptor<Person> = sortDescriptor({ $0.age }, >)
-        let sortingDescriptorByName: SortDescriptor<Person> = sortDescriptor(key: { $0.name }, String.localizedCaseInsensitiveCompare)
+        let sortingDescriptorByAge: SortDescriptor<Person> = CreateSortDescriptor({ $0.age }, >)
+        let sortingDescriptorByName: SortDescriptor<Person> = CreateSortDescriptor(key: { $0.name }, String.localizedCaseInsensitiveCompare)
         
-        let combinedSortingDescriptor = combine(sortDescriptors: [sortingDescriptorByAge,sortingDescriptorByName])
+        let combinedSortingDescriptor = CombineSortDescriptors(sortDescriptors: [sortingDescriptorByAge,sortingDescriptorByName])
         let personsSortedByAgeAndName = personsToSort.sorted(by: combinedSortingDescriptor)
         XCTAssert(personsSortedByAgeAndName[0].name == "Ana")
         XCTAssert(personsSortedByAgeAndName[1].name == "Daniel")
@@ -71,10 +71,10 @@ class SortingDescriptorTests: XCTestCase {
     
     func testCombinedSortingByAgeAndName2() {
         let personsToSort = [Person(29,"Tom"),Person(10,"Jack"),Person(54,"Ana"),Person(24,"Maria"),Person(24,"Aurora"),Person(29,"Daniel")]
-        let sortingDescriptorByAge: SortDescriptor<Person> = sortDescriptor({ $0.age }, >)
-        let sortingDescriptorByName: SortDescriptor<Person> = sortDescriptor(key: { $0.name },ascending: false,String.localizedCaseInsensitiveCompare)
+        let sortingDescriptorByAge: SortDescriptor<Person> = CreateSortDescriptor({ $0.age }, >)
+        let sortingDescriptorByName: SortDescriptor<Person> = CreateSortDescriptor(key: { $0.name },ascending: false,String.localizedCaseInsensitiveCompare)
         
-        let combinedSortingDescriptor = combine(sortDescriptors: [sortingDescriptorByAge,sortingDescriptorByName])
+        let combinedSortingDescriptor = CombineSortDescriptors(sortDescriptors: [sortingDescriptorByAge,sortingDescriptorByName])
         let personsSortedByAgeAndName = personsToSort.sorted(by: combinedSortingDescriptor)
         XCTAssert(personsSortedByAgeAndName[0].name == "Ana")
         XCTAssert(personsSortedByAgeAndName[1].name == "Tom")
@@ -86,10 +86,10 @@ class SortingDescriptorTests: XCTestCase {
     
     func testCombinedSortingByNameAndAge() {
         let personsToSort = [Person(29,"Tom"),Person(10,"Jack"),Person(54,"Ana"),Person(20,"Maria"),Person(24,"Maria"),Person(19,"Tom")]
-        let sortingDescriptorByName: SortDescriptor<Person> = sortDescriptor(key: { $0.name },ascending: true,String.localizedCaseInsensitiveCompare)
-        let sortingDescriptorByAge: SortDescriptor<Person> = sortDescriptor({ $0.age }, >)
+        let sortingDescriptorByName: SortDescriptor<Person> = CreateSortDescriptor(key: { $0.name },ascending: true,String.localizedCaseInsensitiveCompare)
+        let sortingDescriptorByAge: SortDescriptor<Person> = CreateSortDescriptor({ $0.age }, >)
         
-        let combinedSortingDescriptor = combine(sortDescriptors: [sortingDescriptorByName,sortingDescriptorByAge])
+        let combinedSortingDescriptor = CombineSortDescriptors(sortDescriptors: [sortingDescriptorByName,sortingDescriptorByAge])
         let personsSortedByAgeAndName = personsToSort.sorted(by: combinedSortingDescriptor)
         XCTAssert(personsSortedByAgeAndName[0].age == 54)
         XCTAssert(personsSortedByAgeAndName[1].age == 10)

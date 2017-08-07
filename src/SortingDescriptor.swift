@@ -10,7 +10,7 @@ import Foundation
 
 public typealias SortDescriptor<Value> = (Value, Value) -> Bool
 
-public func combine<Value>(sortDescriptors: [SortDescriptor<Value>]) -> SortDescriptor<Value> {
+public func CombineSortDescriptors<Value>(sortDescriptors: [SortDescriptor<Value>]) -> SortDescriptor<Value> {
     return { lhs, rhs in
         for isOrderedBefore in sortDescriptors {
             if isOrderedBefore(lhs,rhs) { return true }
@@ -24,10 +24,10 @@ public func combine<Value>(sortDescriptors: [SortDescriptor<Value>]) -> SortDesc
  
  Example:
  
- let sortByYear: SortDescriptor<Person> = sortDescriptor({ $0.yearOfBirth }, <)
+ let sortByYear: SortDescriptor<Person> = CreateSortDescriptor({ $0.yearOfBirth }, <)
  
  */
-func sortDescriptor<Value, Key>(_ key: @escaping (Value) -> Key, _ isOrderedBefore: @escaping (Key, Key) -> Bool) -> SortDescriptor<Value> {
+public func CreateSortDescriptor<Value, Key>(_ key: @escaping (Value) -> Key, _ isOrderedBefore: @escaping (Key, Key) -> Bool) -> SortDescriptor<Value> {
         return { isOrderedBefore(key($0), key($1)) }
 }
 
@@ -36,10 +36,10 @@ func sortDescriptor<Value, Key>(_ key: @escaping (Value) -> Key, _ isOrderedBefo
  
  Example:
  
- let sortByYearAlt: SortDescriptor<Person> = sortDescriptor({ $0.yearOfBirth })
+ let sortByYearAlt: SortDescriptor<Person> = CreateSortDescriptor({ $0.yearOfBirth })
  
  */
-func sortDescriptor<Value, Key>(_ key: @escaping (Value) -> Key) -> SortDescriptor<Value> where Key: Comparable {
+public func CreateSortDescriptor<Value, Key>(_ key: @escaping (Value) -> Key) -> SortDescriptor<Value> where Key: Comparable {
         return { key($0) < key($1) }
 }
 
@@ -48,10 +48,10 @@ func sortDescriptor<Value, Key>(_ key: @escaping (Value) -> Key) -> SortDescript
  
  Example:
  
- let sortByFirstName: SortDescriptor<Person> = sortDescriptor(key: { $0.first }, String.localizedCaseInsensitiveCompare)
+ let sortByFirstName: SortDescriptor<Person> = CreateSortDescriptor(key: { $0.first }, String.localizedCaseInsensitiveCompare)
  
  */
-func sortDescriptor<Value, Key>(key: @escaping (Value) -> Key, ascending: Bool = true, _ comparator: @escaping (Key) -> (Key) -> ComparisonResult) -> SortDescriptor<Value> {
+public func CreateSortDescriptor<Value, Key>(key: @escaping (Value) -> Key, ascending: Bool = true, _ comparator: @escaping (Key) -> (Key) -> ComparisonResult) -> SortDescriptor<Value> {
     return { lhs, rhs in
         let order: ComparisonResult = ascending ? .orderedAscending : .orderedDescending
         return comparator(key(lhs))(key(rhs)) == order
