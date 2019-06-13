@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F78865822B258B800010F0E /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F78865722B258B800010F0E /* Package.swift */; };
 		B9B402CF1E269B8F006165CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B402CE1E269B8F006165CE /* AppDelegate.swift */; };
 		B9B402D11E269B8F006165CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B402D01E269B8F006165CE /* ViewController.swift */; };
 		B9B402D41E269B8F006165CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B402D21E269B8F006165CE /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F78865722B258B800010F0E /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		B9B402CB1E269B8F006165CE /* SortingDescriptor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SortingDescriptor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B402CE1E269B8F006165CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9B402D01E269B8F006165CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		B9B402C21E269B8F006165CE = {
 			isa = PBXGroup;
 			children = (
+				3F78865722B258B800010F0E /* Package.swift */,
 				B9B402F11E269CBB006165CE /* LICENSE */,
 				B9B402F31E269CBB006165CE /* T21SortingDescriptorSwift.podspec */,
 				B9B402EE1E269BB8006165CE /* src */,
@@ -182,6 +185,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -223,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F78865822B258B800010F0E /* Package.swift in Sources */,
 				B9B402F01E269BB8006165CE /* SortingDescriptor.swift in Sources */,
 				B9B402D11E269B8F006165CE /* ViewController.swift in Sources */,
 				B9B402CF1E269B8F006165CE /* AppDelegate.swift in Sources */,
